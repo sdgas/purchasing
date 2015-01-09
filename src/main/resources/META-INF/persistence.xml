@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+             xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+
+    <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
+
+        <!-- 驱动实现类，入口类 -->
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value="root"/>
+            <property name="hibernate.connection.url"
+                      value="jdbc:mysql://localhost:3306/purchasing?useUnicode=true&amp;characterEncoding=UTF-8"/>
+            <property name="hibernate.max_fetch_depth" value="3"/>
+            <!-- dev时设为update，prod 中时应该去掉，目的是为了不存在这个表时，增加，存在时，检验是否符合entity所描述那样 -->
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.jdbc.fetch_size" value="18"/>
+            <property name="hibernate.jdbc.batch_size" value="10"/>
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.format_sql" value="false"/>
+        </properties>
+
+    </persistence-unit>
+</persistence>
+
