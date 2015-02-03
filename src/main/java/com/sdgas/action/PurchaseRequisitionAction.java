@@ -176,6 +176,7 @@ public class PurchaseRequisitionAction extends MyActionSupport implements ModelD
         return VIEW;
     }
 
+    //审批
     public String check() {
         if (UserUtil.checkUserLogIn(user)) {
             prVo.setResultMessage("<script>alert('请登录！');location.href='login.jsp';</script>");
