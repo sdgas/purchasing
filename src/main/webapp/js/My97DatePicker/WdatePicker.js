@@ -57,11 +57,38 @@ var $dp, WdatePicker;
         hmsMenuCfg: {H: [1, 6], m: [5, 6], s: [15, 4]},
         opposite: false,
 
-        specialDates: null, specialDays: null, disabledDates: null, disabledDays: null, onpicking: null, onpicked: null, onclearing: null, oncleared: null, ychanging: null, ychanged: null, Mchanging: null, Mchanged: null, dchanging: null, dchanged: null, Hchanging: null, Hchanged: null, mchanging: null, mchanged: null, schanging: null, schanged: null, eCont: null, vel: null, elProp: "", errMsg: "", quickSel: [], has: {}, getRealLang: function () {
+        specialDates: null,
+        specialDays: null,
+        disabledDates: null,
+        disabledDays: null,
+        onpicking: null,
+        onpicked: null,
+        onclearing: null,
+        oncleared: null,
+        ychanging: null,
+        ychanged: null,
+        Mchanging: null,
+        Mchanged: null,
+        dchanging: null,
+        dchanged: null,
+        Hchanging: null,
+        Hchanged: null,
+        mchanging: null,
+        mchanged: null,
+        schanging: null,
+        schanged: null,
+        eCont: null,
+        vel: null,
+        elProp: "",
+        errMsg: "",
+        quickSel: [],
+        has: {},
+        getRealLang: function () {
             var _ = $.$langList;
             for (var A = 0; A < _.length; A++)if (_[A].name == this.lang)return _[A];
             return _[0]
-        }};
+        }
+    };
     WdatePicker = U;
     var Y = window, T = {innerHTML: ""}, N = "document", H = "documentElement", C = "getElementsByTagName", V, A, S, G, c, X = navigator.appName;
     if (X == "Microsoft Internet Explorer")S = true; else if (X == "Opera")c = true; else G = true;
@@ -97,45 +124,47 @@ var $dp, WdatePicker;
             V = Y;
             $dp = $dp || {}
         }
-        var A = {win: Y, $: function ($) {
-            return(typeof $ == "string") ? Y[N].getElementById($) : $
-        }, $D: function ($, _) {
-            return this.$DV(this.$($).value, _)
-        }, $DV: function (_, $) {
-            if (_ != "") {
-                this.dt = $dp.cal.splitDate(_, $dp.cal.dateFmt);
-                if ($)for (var B in $)if (this.dt[B] === undefined)this.errMsg = "invalid property:" + B; else {
-                    this.dt[B] += $[B];
-                    if (B == "M") {
-                        var C = $["M"] > 0 ? 1 : 0, A = new Date(this.dt["y"], this.dt["M"], 0).getDate();
-                        this.dt["d"] = Math.min(A + C, this.dt["d"])
+        var A = {
+            win: Y, $: function ($) {
+                return (typeof $ == "string") ? Y[N].getElementById($) : $
+            }, $D: function ($, _) {
+                return this.$DV(this.$($).value, _)
+            }, $DV: function (_, $) {
+                if (_ != "") {
+                    this.dt = $dp.cal.splitDate(_, $dp.cal.dateFmt);
+                    if ($)for (var B in $)if (this.dt[B] === undefined)this.errMsg = "invalid property:" + B; else {
+                        this.dt[B] += $[B];
+                        if (B == "M") {
+                            var C = $["M"] > 0 ? 1 : 0, A = new Date(this.dt["y"], this.dt["M"], 0).getDate();
+                            this.dt["d"] = Math.min(A + C, this.dt["d"])
+                        }
                     }
+                    if (this.dt.refresh())return this.dt
                 }
-                if (this.dt.refresh())return this.dt
-            }
-            return""
-        }, show: function () {
-            var A = V[N].getElementsByTagName("div"), $ = 100000;
-            for (var B = 0; B < A.length; B++) {
-                var _ = parseInt(A[B].style.zIndex);
-                if (_ > $)$ = _
-            }
-            this.dd.style.zIndex = $ + 2;
-            P(this.dd, "block");
-            P(this.dd.firstChild, "")
-        }, unbind: function ($) {
-            $ = this.$($);
-            if ($.initcfg) {
-                L($, "onclick", function () {
-                    U($.initcfg)
-                });
-                L($, "onfocus", function () {
-                    U($.initcfg)
-                })
-            }
-        }, hide: function () {
-            P(this.dd, "none")
-        }, attachEvent: E};
+                return ""
+            }, show: function () {
+                var A = V[N].getElementsByTagName("div"), $ = 100000;
+                for (var B = 0; B < A.length; B++) {
+                    var _ = parseInt(A[B].style.zIndex);
+                    if (_ > $)$ = _
+                }
+                this.dd.style.zIndex = $ + 2;
+                P(this.dd, "block");
+                P(this.dd.firstChild, "")
+            }, unbind: function ($) {
+                $ = this.$($);
+                if ($.initcfg) {
+                    L($, "onclick", function () {
+                        U($.initcfg)
+                    });
+                    L($, "onfocus", function () {
+                        U($.initcfg)
+                    })
+                }
+            }, hide: function () {
+                P(this.dd, "none")
+            }, attachEvent: E
+        };
         for (var _ in A)V.$dp[_] = A[_];
         $dp = V.$dp
     }
@@ -213,12 +242,15 @@ var $dp, WdatePicker;
             }
             $ = $.parent
         }
-        return{"leftM": A, "topM": _}
+        return {"leftM": A, "topM": _}
     }
 
     function W(G, F) {
         if (G.getBoundingClientRect)return G.getBoundingClientRect(); else {
-            var A = {ROOT_TAG: /^body|html$/i, OP_SCROLL: /^(?:inline|table-row)$/i}, E = false, I = null, _ = G.offsetTop, H = G.offsetLeft, D = G.offsetWidth, B = G.offsetHeight, C = G.offsetParent;
+            var A = {
+                ROOT_TAG: /^body|html$/i,
+                OP_SCROLL: /^(?:inline|table-row)$/i
+            }, E = false, I = null, _ = G.offsetTop, H = G.offsetLeft, D = G.offsetWidth, B = G.offsetHeight, C = G.offsetParent;
             if (C != G)while (C) {
                 H += C.offsetLeft;
                 _ += C.offsetTop;
@@ -240,21 +272,21 @@ var $dp, WdatePicker;
             }
             D += H;
             B += _;
-            return{"left": H, "top": _, "right": D, "bottom": B}
+            return {"left": H, "top": _, "right": D, "bottom": B}
         }
     }
 
     function M($) {
         $ = $ || V;
         var B = $[N], A = ($.innerWidth) ? $.innerWidth : (B[H] && B[H].clientWidth) ? B[H].clientWidth : B.body.offsetWidth, _ = ($.innerHeight) ? $.innerHeight : (B[H] && B[H].clientHeight) ? B[H].clientHeight : B.body.offsetHeight;
-        return{"width": A, "height": _}
+        return {"width": A, "height": _}
     }
 
     function b($) {
         $ = $ || V;
         var B = $[N], A = B[H], _ = B.body;
         B = (A && A.scrollTop != null && (A.scrollTop > _.scrollTop || A.scrollLeft > _.scrollLeft)) ? A : _;
-        return{"top": B.scrollTop, "left": B.scrollLeft}
+        return {"top": B.scrollTop, "left": B.scrollLeft}
     }
 
     function D($) {

@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.List;
 
-public class MaterialServiceImplTest{
+public class MaterialServiceImplTest {
 
     private static ApplicationContext ac;
     private static MaterialService materialService;
@@ -27,7 +27,7 @@ public class MaterialServiceImplTest{
     }
 
     @Test
-    public void testFindAll(){
+    public void testFindAll() {
         List<Material> materials = materialService.findAll();
         System.out.println(materials.size());
     }

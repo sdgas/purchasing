@@ -38,7 +38,7 @@ public class Supplier {
      * 联系电话
      */
     private String phone;
-    
+
     /**
      * 传真
      */
@@ -65,7 +65,7 @@ public class Supplier {
     }
 
     @Column(length = 30, nullable = false)
-    @ExcelResources(title = "供应商名称",order = 1)
+    @ExcelResources(title = "供应商名称", order = 1)
     public String getSupplierName() {
         return supplierName;
     }
@@ -75,7 +75,7 @@ public class Supplier {
     }
 
     @Column(length = 10)
-    @ExcelResources(title = "联系人",order = 2)
+    @ExcelResources(title = "联系人", order = 2)
     public String getContacts() {
         return contacts;
     }
@@ -85,7 +85,7 @@ public class Supplier {
     }
 
     @Column(length = 50, nullable = false)
-    @ExcelResources(title = "地址",order = 5)
+    @ExcelResources(title = "地址", order = 5)
     public String getAddress() {
         return address;
     }
@@ -95,7 +95,7 @@ public class Supplier {
     }
 
     @Column(length = 15, nullable = false)
-    @ExcelResources(title = "联系电话",order = 3)
+    @ExcelResources(title = "联系电话", order = 3)
     public String getPhone() {
         return phone;
     }
@@ -103,19 +103,19 @@ public class Supplier {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-    
+
     @Column(length = 50, nullable = false)
-    @ExcelResources(title = "传真号码",order = 4)
+    @ExcelResources(title = "传真号码", order = 4)
     public String getFax() {
-		return fax;
-	}
+        return fax;
+    }
 
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
-	@Column(length = 400)
-    @ExcelResources(title = "评价",order = 6)
+    @Column(length = 400)
+    @ExcelResources(title = "评价", order = 6)
     public String getEvaluation() {
         return evaluation;
     }

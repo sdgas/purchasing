@@ -44,7 +44,7 @@ public class UserServiceTest {
 
     @Test
     public void testDpSendMail() {
-        User user = userService.findNextUser("DP", userService.findById("leader"),null);
+        User user = userService.findNextUser("DP", userService.findById("leader"), null);
         Assert.assertEquals("", user.getUserName());
 
     }
@@ -52,7 +52,7 @@ public class UserServiceTest {
     @Test
     public void testPRSendMail() {
         PurchaseRequisition pr = purchaseRequisitionService.findPRById(10);
-        User user = userService.findNextUser("PR", userService.findById("manager"),pr);
+        User user = userService.findNextUser("PR", userService.findById("manager"), pr);
         Assert.assertEquals("", user.getUserName());
 
     }

@@ -20,17 +20,17 @@ function addRow() {
     var newtext6 = document.createElement("td");
     newCheckBox.innerHTML = '<input type="Checkbox" name="checkbox" onclick = "checkBoxSel()">';
     newtext1.innerHTML = '<input name="materialIds" type="text" class="search" ondblclick="findMaterial(this.id)" id="materialId'
-        + num + '"/>';
+    + num + '"/>';
     newtext2.innerHTML = '<input type="text" readonly="readonly" id="materialName'
-        + num + '"/>';
+    + num + '"/>';
     newtext3.innerHTML = '<input type="text" readonly="readonly" id="standard'
-        + num + '"/>';
+    + num + '"/>';
     newtext4.innerHTML = '<input type="text" readonly="readonly" id="materialType'
-        + num + '"/>';
+    + num + '"/>';
     newtext5.innerHTML = '<input type="text" readonly="readonly" id="materialUnit'
-        + num + '"/>';
+    + num + '"/>';
     newtext6.innerHTML = '<input type="text" name="amount" onchange="check(this.id)" id="amount'
-        + num + '">';
+    + num + '">';
     // 新增的tr节点下增加td节点
     newRowObj.appendChild(newCheckBox);
     newRowObj.appendChild(newtext1);
@@ -165,8 +165,8 @@ function getResult(departments) {
         + '---------请选择---------' + '</option>';
     for (var i = 0; i < departments.length; i++) {
         select_list += '<option style="text-align: center" value="'
-            + departments[i].departmentId + '">'
-            + departments[i].departmentName + "</option>";
+        + departments[i].departmentId + '">'
+        + departments[i].departmentName + "</option>";
     }
     $("#dep").html(select_list);
 }

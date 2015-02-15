@@ -33,7 +33,7 @@ public class DemandPlansServiceImplTest {
     }
 
     @Test
-    public void testCheckDP(){
+    public void testCheckDP() {
         String str = demandPlansService.checkDP(userService.findById("leader"));
         Assert.assertEquals("", str);
     }

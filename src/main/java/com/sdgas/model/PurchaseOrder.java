@@ -20,7 +20,7 @@ public class PurchaseOrder {
      * 请购材料
      */
     private PurchaseMaterial pm;
-    
+
     /**
      * 供应商
      */
@@ -94,18 +94,18 @@ public class PurchaseOrder {
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
-    
+
     @ManyToOne
     @JoinColumn(name = "supplier")
-     public Supplier getSupplier() {
-		return supplier;
-	}
+    public Supplier getSupplier() {
+        return supplier;
+    }
 
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 
-	@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "material")
     public PurchaseMaterial getPm() {
         return pm;

@@ -47,7 +47,7 @@
                 _month = dateObj.getMonth() + 1,
                 _date = dateObj.getDate(),
                 week = dateObj.getDay(),
-                days = [ "日", "一 ", "二 ", "三 ", "四 ", "五 ", "六 "],
+                days = ["日", "一 ", "二 ", "三 ", "四 ", "五 ", "六 "],
                 _day = days[week],
                 _hours = dateObj.getHours(),
                 _minutes = dateObj.getMinutes(),
@@ -58,7 +58,7 @@
                 _idx = 0,
                 defInfo = "",
                 getDateCount = function (y, m) {
-                    return [31, y % 4 == 0 && y % 100 != 0 || y % 400 == 0 ? 29 : 28 , 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][ m + 1 ];
+                    return [31, y % 4 == 0 && y % 100 != 0 || y % 400 == 0 ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][m + 1];
                 };
             // 赋值数据
             $hh.val("00");
@@ -217,7 +217,7 @@
             function mAnimate(index) {
                 $dayFrame.eq(index).addClass("dateV").siblings().removeClass("dateV");
                 $month.text(index + 1);
-                $jcDateMax.animate({ "left": -index * 161 }, options.Speed);
+                $jcDateMax.animate({"left": -index * 161}, options.Speed);
             }
 
             function today(y, m, d) {
@@ -288,7 +288,7 @@
                     $(this).addClass("dateVisited");
                     //$jcDate.css({ "left" : e.pageX+(options.Left),"top" : e.pageY+(options.Top) });
                     var iof = $(this).offset();
-                    $jcDate.css({ "left": iof.left + options.Left, "top": iof.top + options.Top });
+                    $jcDate.css({"left": iof.left + options.Left, "top": iof.top + options.Top});
                     $jcDate.show(options.Speed);
                     $jcDayWrap.show();
                     $jcYeas.hide();

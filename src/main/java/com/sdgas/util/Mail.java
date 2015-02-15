@@ -16,33 +16,29 @@ import javax.mail.internet.MimeMultipart;
  */
 public class Mail {
 
-/*    private final static String smtp = "smtp.126.com"; // 发送邮件服务器
-    private final static String user = "sd_gas"; // 邮件服务器登录用户名，（qq帐号）
-    private final static String password = "sditor@"; // 邮件服务器登录密码
-    private final static String from = "sd_gas@120.com"; // 发送人邮件地址*/
+    /*    private final static String smtp = "smtp.126.com"; // 发送邮件服务器
+        private final static String user = "sd_gas"; // 邮件服务器登录用户名，（qq帐号）
+        private final static String password = "sditor@"; // 邮件服务器登录密码
+        private final static String from = "sd_gas@120.com"; // 发送人邮件地址*/
     private final static String smtp = "smtp.qq.com"; // 发送邮件服务器
     private final static String user = "476288644"; // 邮件服务器登录用户名，（qq帐号）
     private final static String password = "hebin661683"; // 邮件服务器登录密码，（qq密码）
     private final static String from = "476288644@qq.com"; // 发送人邮件地址，（qq邮箱）
 
 	/*
-	 * 注意点1：发送人邮件地址必须是邮件服务器登录用户名下注册的邮箱，否则会报SMTPSendFailedException: 501 mail
+     * 注意点1：发送人邮件地址必须是邮件服务器登录用户名下注册的邮箱，否则会报SMTPSendFailedException: 501 mail
 	 * from address must be same as authorization user异常
 	 */
 
     /**
-     * @param to
-     *            接收方的邮件地址
-     * @param title
-     *            邮件的标题
-     * @param content
-     *            邮件内容
-     * @param type
-     *            邮件格式
+     * @param to      接收方的邮件地址
+     * @param title   邮件的标题
+     * @param content 邮件内容
+     * @param type    邮件格式
      */
     public static void sendMail(String to, String title, String content,
                                 String type) {
-		/* 以下为发送程序 */
+        /* 以下为发送程序 */
         // 设置邮件的属性
         Properties props = new Properties();
         props.put("mail.smtp.host", smtp);// 存储发送邮件服务器的信息
@@ -74,10 +70,10 @@ public class Mail {
                 mbp.addBodyPart(htmlmbp);
 
 				/*
-				 * 附图
+                 * 附图
 				 */
-				/*
-				MimeBodyPart imgmbp = new MimeBodyPart();
+                /*
+                MimeBodyPart imgmbp = new MimeBodyPart();
 				// 设定邮件内容的类型为 图片格式
 				imgmbp.setDataHandler(new DataHandler(new FileDataSource(
 						"d:/1.jpg")));

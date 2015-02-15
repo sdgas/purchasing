@@ -7,119 +7,119 @@ import com.sdgas.model.Supplier;
  */
 public class SupplierVO extends BaseVO {
 
-	/**
-	 * 供应商编号
-	 */
-	private int supplierId;
+    /**
+     * 供应商编号
+     */
+    private int supplierId;
 
-	/**
-	 * 供应商名字
-	 */
-	private String supplierName;
+    /**
+     * 供应商名字
+     */
+    private String supplierName;
 
-	/**
-	 * 联系人
-	 */
-	private String contacts;
+    /**
+     * 联系人
+     */
+    private String contacts;
 
-	/**
-	 * 地址
-	 */
-	private String address;
+    /**
+     * 地址
+     */
+    private String address;
 
-	/**
-	 * 联系电话
-	 */
-	private String phone;
-	private String fax;
+    /**
+     * 联系电话
+     */
+    private String phone;
+    private String fax;
 
-	/**
-	 * 评价
-	 */
-	private String evaluation;
+    /**
+     * 评价
+     */
+    private String evaluation;
 
-	private boolean enableUse = true;
-	private String message;
-	private Supplier supplier;
+    private boolean enableUse = true;
+    private String message;
+    private Supplier supplier;
 
-	public boolean isEnableUse() {
-		return enableUse;
-	}
+    public boolean isEnableUse() {
+        return enableUse;
+    }
 
-	public void setEnableUse(boolean enableUse) {
-		this.enableUse = enableUse;
-	}
+    public void setEnableUse(boolean enableUse) {
+        this.enableUse = enableUse;
+    }
 
-	public Supplier getSupplier() {
-		return supplier;
-	}
+    public Supplier getSupplier() {
+        return supplier;
+    }
 
-	public void setSupplier(Supplier supplier) {
-		this.supplier = supplier;
-	}
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setMessage(String message) {
-		this.message = message;
-	}
+    public void setMessage(String message) {
+        this.message = message;
+    }
 
-	public int getSupplierId() {
-		return supplierId;
-	}
+    public int getSupplierId() {
+        return supplierId;
+    }
 
-	public void setSupplierId(int supplierId) {
-		this.supplierId = supplierId;
-	}
+    public void setSupplierId(int supplierId) {
+        this.supplierId = supplierId;
+    }
 
-	public String getSupplierName() {
-		return supplierName;
-	}
+    public String getSupplierName() {
+        return supplierName;
+    }
 
-	public void setSupplierName(String supplierName) {
-		this.supplierName = supplierName;
-	}
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
 
-	public String getContacts() {
-		return contacts;
-	}
+    public String getContacts() {
+        return contacts;
+    }
 
-	public void setContacts(String contacts) {
-		this.contacts = contacts;
-	}
+    public void setContacts(String contacts) {
+        this.contacts = contacts;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getPhone() {
-		return phone;
-	}
+    public String getPhone() {
+        return phone;
+    }
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
-	public String getEvaluation() {
-		return evaluation;
-	}
+    public String getEvaluation() {
+        return evaluation;
+    }
 
-	public void setEvaluation(String evaluation) {
-		this.evaluation = evaluation;
-	}
+    public void setEvaluation(String evaluation) {
+        this.evaluation = evaluation;
+    }
 
-	public String getFax() {
-		return fax;
-	}
+    public String getFax() {
+        return fax;
+    }
 
-	public void setFax(String fax) {
-		this.fax = fax;
-	}
+    public void setFax(String fax) {
+        this.fax = fax;
+    }
 
 }

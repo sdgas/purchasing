@@ -3,7 +3,7 @@
  */
 eval(function (p, a, c, k, e, d) {
     e = function (c) {
-        return(c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
+        return (c < a ? "" : e(parseInt(c / a))) + ((c = c % a) > 35 ? String.fromCharCode(c + 29) : c.toString(36))
     };
     if (!''.replace(/^/, String)) {
         while (c--)d[e(c)] = k[c] || e(c);
@@ -11,7 +11,7 @@ eval(function (p, a, c, k, e, d) {
             return d[e]
         }];
         e = function () {
-            return'\\w+'
+            return '\\w+'
         };
         c = 1;
     }

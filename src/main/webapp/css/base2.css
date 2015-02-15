@@ -1,30 +1,30 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
 
 }
 
-#head_line{
+#head_line {
     width: 100%;
     height: 3px;
     background: #2569c1;
 }
 
-#head{
+#head {
     width: 960px;
     height: 110px;
     margin: 0 auto 30px;
 }
 
-#head img{
+#head img {
     float: left;
-    margin:0px 0px -5px 0px;
+    margin: 0px 0px -5px 0px;
 }
 
-#head #login{
+#head #login {
     float: left;
     position: absolute;
     top: 3px;
@@ -34,7 +34,7 @@ body{
     background: url(../img/login_bg.jpg) no-repeat;
 }
 
-#head #login a{
+#head #login a {
     font-size: 14px;
     text-decoration: none;
     padding: 0px 5px 0px 5px;
@@ -42,12 +42,12 @@ body{
     color: #fff;
 }
 
-#head #login a:hover{
+#head #login a:hover {
     color: red;
     text-decoration: underline;
 }
 
-#nav{
+#nav {
     height: 35px;
     float: right;
     margin-top: 80px;
@@ -122,26 +122,25 @@ body{
     text-decoration: underline;
 }
 
-#content{
+#content {
     width: 900px;
     margin: 10px auto 0;
-    }
+}
 
-#content h2{
-     background: #557bac;
-     font-weight: normal;
-     font-family: "微软雅黑";
-     color: white;
-     font-size: 16px;
-     margin-left: 2%;
-     margin-top: 10px;
-     margin-bottom: 10px;
-     *margin-bottom: 3px;
-     padding: 5px 0 5px 10px;
- }
+#content h2 {
+    background: #557bac;
+    font-weight: normal;
+    font-family: "微软雅黑";
+    color: white;
+    font-size: 16px;
+    margin-left: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    *margin-bottom: 3px;
+    padding: 5px 0 5px 10px;
+}
 
-
-#content h3{
+#content h3 {
     background: #557bac;
     font-weight: normal;
     font-family: "微软雅黑";
@@ -154,52 +153,52 @@ body{
     padding: 5px 0 5px 10px;
 }
 
-#loginForm{
+#loginForm {
     width: 500px;
     margin-top: 20px;
     margin-left: 95px;
 
 }
 
-#content form table{
+#content form table {
     margin: 20px 0px 20px 180px;
     font-family: '微软雅黑';
     font-size: 16px;
 }
 
-#content form table tr td{
+#content form table tr td {
     /*width: 200px;*/
     height: 35px;
 
 }
 
-#content form table tr td input{
+#content form table tr td input {
     font-family: '微软雅黑';
     font-size: 16px;
 
 }
 
-#content form table tr td #link a{
+#content form table tr td #link a {
     text-decoration: none;
 }
 
-#content form table tr td a:hover{
+#content form table tr td a:hover {
     color: #878787;
 }
 
-#content form a{
+#content form a {
     text-decoration: none;
 }
 
-#content hr{
+#content hr {
     width: 96%;
     margin: 0 auto;
-    color:#ffffff;
-    size:0;
+    color: #ffffff;
+    size: 0;
     border-bottom: 1px #cccccc solid;
 }
 
-#footer{
+#footer {
     width: 960px;
     margin: 0 auto;
     height: 80px;

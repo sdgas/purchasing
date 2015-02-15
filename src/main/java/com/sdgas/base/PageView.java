@@ -68,6 +68,7 @@ public class PageView<T> {
 
     /**
      * 设置查询结果 *
+     *
      * @param qr
      */
     public void setQueryResult(QueryResult qr) {

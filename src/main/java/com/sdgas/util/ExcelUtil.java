@@ -352,7 +352,7 @@ public class ExcelUtil {
         if (i == 2)
             cs.setDataFormat(format.getFormat("0"));
         cell.setCellStyle(cs);
-    } 
+    }
 
     public ExcelUtil() {
     }

@@ -9,7 +9,8 @@ import com.sdgas.model.Position;
 public interface PositionService extends DAO {
 
     /**
-     *  根据职位名称查找职位
+     * 根据职位名称查找职位
+     *
      * @param position 职位名称
      * @return 职位
      */

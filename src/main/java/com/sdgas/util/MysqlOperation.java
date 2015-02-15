@@ -5,7 +5,7 @@ import java.io.*;
 public class MysqlOperation {
     public static void backupMysqlDatabase(String mysqlBinUrl, String hostName,
                                            String dataBase, String userName,
-                                           String password, String outFilePath)throws Exception {
+                                           String password, String outFilePath) throws Exception {
         // 组装备份MySQL的命令
         StringBuilder sqlStr = new StringBuilder();
         sqlStr.append(mysqlBinUrl).append("mysqldump -u").append(userName)
@@ -36,11 +36,11 @@ public class MysqlOperation {
         br.close();
         writer.close();
         fout.close();
-        }
+    }
 
     public static void resumeMysqlDatabase(String mysqlBinUrl, String hostName,
-                                      String dataBase, String userName,
-                                      String password, String outFilePath) throws Exception{
+                                           String dataBase, String userName,
+                                           String password, String outFilePath) throws Exception {
         // 组装备份MySQL的命令
         StringBuilder sqlStr = new StringBuilder();
         sqlStr.append(mysqlBinUrl).append("mysql -u").append(userName)
@@ -63,6 +63,6 @@ public class MysqlOperation {
         br.close();
         writer.close();
         out.close();
-        }
+    }
 }
 

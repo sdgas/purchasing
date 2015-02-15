@@ -36,7 +36,7 @@ public class DepartmentServiceImplTest {
     }
 
     @Test
-    public void testFindDepartmentByName(){
+    public void testFindDepartmentByName() {
         department = departmentService.findDepartmentByName("安全技术");
         Assert.assertNotNull(department);
     }

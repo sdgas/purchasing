@@ -1,14 +1,10 @@
 package com.sdgas.Service.Impl;
 
-import com.sdgas.base.QueryResult;
 import com.sdgas.service.PurchaseRequisitionService;
-import junit.framework.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import static org.junit.Assert.*;
 
 public class PurchaseRequisitionServiceImplTest {
 

@@ -11,7 +11,6 @@ import com.sdgas.service.SupplierService;
 import com.sdgas.util.ChangeTime;
 import com.sdgas.util.UserUtil;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
@@ -285,7 +284,7 @@ public class OrderAction extends MyActionSupport implements
 
     private PageView<PurchaseOrder> duplicate(PageView<PurchaseOrder> pageView,
                                               String supplierId) {
-        List<PurchaseOrder> purchaseOrders = new ArrayList<>();
+        List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
         for (PurchaseOrder purchaseOrder : (List<PurchaseOrder>) pageView
                 .getRecords()) {
             if (Integer.valueOf(supplierId) != purchaseOrder.getPm()
@@ -304,7 +303,7 @@ public class OrderAction extends MyActionSupport implements
             return ERROR;
         }
         System.out.println("测试~！");
-        List<PurchaseOrder> orders = new ArrayList<>();
+        List<PurchaseOrder> orders = new ArrayList<PurchaseOrder>();
         if (!"".equals(orderVO.getSupplier())) {
             Supplier supplier = supplierService.findSupplierByName(orderVO
                     .getSupplier());

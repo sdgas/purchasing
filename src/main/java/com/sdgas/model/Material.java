@@ -41,7 +41,7 @@ public class Material {
 
     @Id
     @Column(length = 20)
-    @ExcelResources(title = "存货编码",order = 1)
+    @ExcelResources(title = "存货编码", order = 1)
     public String getMaterialId() {
         return materialId;
     }
@@ -51,7 +51,7 @@ public class Material {
     }
 
     @Column(length = 50)
-    @ExcelResources(title = "存货名称",order = 2)
+    @ExcelResources(title = "存货名称", order = 2)
     public String getMaterialName() {
         return materialName;
     }
@@ -61,7 +61,7 @@ public class Material {
     }
 
     @Column(length = 50, nullable = false)
-    @ExcelResources(title = "规格",order = 3)
+    @ExcelResources(title = "规格", order = 3)
     public String getStandard() {
         return standard;
     }
@@ -71,7 +71,7 @@ public class Material {
     }
 
     @Column(length = 50, nullable = false)
-    @ExcelResources(title = "型号",order = 4)
+    @ExcelResources(title = "型号", order = 4)
     public String getMaterialType() {
         return materialType;
     }
@@ -81,7 +81,7 @@ public class Material {
     }
 
     @Column(length = 10, nullable = false)
-    @ExcelResources(title = "计量单位",order = 5)
+    @ExcelResources(title = "计量单位", order = 5)
     public String getMaterialUnit() {
         return materialUnit;
     }

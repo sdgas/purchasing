@@ -38,7 +38,9 @@ public class ChangeTime {
 
     public static String formatTime(Date date) {
         return date == null ? "" : dateFormat3.format(date);
-    }public static String formatTime2(Date date) {
+    }
+
+    public static String formatTime2(Date date) {
 
         return date == null ? "" : dateFormat4.format(date);
     }
@@ -136,13 +138,13 @@ public class ChangeTime {
             return new Date();
         }
     }
-    
-    public  static Date parseStringToShortDate(String date){
-    	try {
-			return date == null ? new Date() :dateFormat1.parse(date);
-		} catch (Exception  e) {
-			return new Date();
-		}
+
+    public static Date parseStringToShortDate(String date) {
+        try {
+            return date == null ? new Date() : dateFormat1.parse(date);
+        } catch (Exception e) {
+            return new Date();
+        }
     }
 
     /**
@@ -174,7 +176,7 @@ public class ChangeTime {
         try {
             date = myFormatter.parse(last);
             Date mydate = myFormatter.parse(ChangeTime.getCurrentDate());
-            day = (mydate.getTime() - date.getTime()) /  1000;
+            day = (mydate.getTime() - date.getTime()) / 1000;
 
         } catch (ParseException e) {
             e.printStackTrace();

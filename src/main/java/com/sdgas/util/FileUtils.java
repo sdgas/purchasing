@@ -16,15 +16,16 @@ public class FileUtils {
 
     /**
      * 判断后缀是否在列表中
+     *
      * @param fileSufix 文件后缀
-     * @param sufix 后缀列表 格式为: pdf,doc,ppt,xls
+     * @param sufix     后缀列表 格式为: pdf,doc,ppt,xls
      * @return 是否匹配列表后缀
      */
-    public static boolean isSufix(String fileSufix,String sufix){
+    public static boolean isSufix(String fileSufix, String sufix) {
         flag = false;
         String[] sufixs = sufix.split(",");
-        for(String s : sufixs){
-            if(fileSufix.equals(s)){
+        for (String s : sufixs) {
+            if (fileSufix.equals(s)) {
                 flag = true;
             }
         }

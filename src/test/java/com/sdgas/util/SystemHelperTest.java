@@ -12,7 +12,7 @@ public class SystemHelperTest {
     @Test
     public void testGetSystemLocalIp() throws Exception {
         InetAddress ip = SystemHelper.getSystemLocalIp();
-        Assert.assertEquals("10.48.1.151",ip.getHostAddress());
+        Assert.assertEquals("10.48.1.151", ip.getHostAddress());
     }
 
     @Test

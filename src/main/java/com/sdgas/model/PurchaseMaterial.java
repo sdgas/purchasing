@@ -57,7 +57,6 @@ public class PurchaseMaterial {
     private Supplier supplier;
 
 
-
     /**
      * 物料总价
      */
