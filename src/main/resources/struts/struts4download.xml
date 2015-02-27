@@ -15,7 +15,5 @@
             <result name="login">/index.jsp</result>
             <result name="index">/index.jsp</result>
         </action>
-
     </package>
-
 </struts>
