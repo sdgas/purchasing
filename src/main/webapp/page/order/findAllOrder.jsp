@@ -35,6 +35,8 @@
     <script language="javascript" type="text/javascript"
             src="<%=basePath%>js/My97DatePicker/WdatePicker.js"></script>
     <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+    <%--jQuery placeholder, for IE6,7,8,9--%>
+    <script src="<%=basePath%>js/jquery.JPlaceholder.js"></script>
     <%--加载dwr--%>
     <script src='<%=basePath%>dwr/util.js' type="text/javascript"></script>
     <script src='<%=basePath%>dwr/engine.js' type="text/javascript"></script>
@@ -70,28 +72,48 @@
             }
             $("#supplier").html(select_list);
         }
+
+        function checkNull() {
+            var date = document.getElementById("orderDate").value;
+            var supplier = document.getElementById("supplier").selectedIndex;
+            if (date == "" && supplier == 0) {
+                alert("请至少输入一个查询条件");
+                return false;
+            }
+            return true;
+        }
     </script>
 </head>
 <body>
 <%@ include file="/page/share/menu.jsp" %>
 <div id="content">
-    <form action="Order!search.action" method="post">
+    <form action="Order!search.action" method="post" onsubmit="return checkNull();">
         <input type="hidden" name="flag" value="6">
 
         <div class="form-group" align="center">
             <table>
-                <tr align="center" style="width: 1500px">
+                <tr align="center">
                     <td>需求日期：</td>
                     <td><input type="text" name="orderDate" class="Wdate"
-                               onfocus="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})"/></td>
+                               onclick="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})" id="orderDate"/></td>
                     <td>&nbsp;&nbsp;</td>
-                    <td width="50px">供应商：</td>
+                    <td>供应商：</td>
                     <td><select name="supplier" id="supplier"
                                 style="font-family: '微软雅黑';font-size: 16px;"></select></td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><input type="text" class="form-control"
-                               placeholder="请采购编号" name="orderId">
+                </tr>
+                <tr align="center">
+                    <td>采购编号：</td>
+                    <td>
+                        <input type="text" class="form-control"
+                               placeholder="请输入采购编号" name="orderId" style="height: 28px;width: 180px" id="orderId">
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                </tr>
+                <tr align="center">
+                    <td colspan="6" align="center">
                         <button type="submit" class="btn btn-default">查询</button>
+                        <button type="reset" class="btn btn-default">重置</button>
                     </td>
                 </tr>
             </table>
@@ -100,7 +122,7 @@
     <form action="DemandPlans.action" method="post" id="myform">
         <input type="hidden" name="page" value="1" id="page"/>
         <table
-                style="border: 1 #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
+                style="border: 1px #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
             <thead align="center">
             <tr>
                 <td>
@@ -124,7 +146,7 @@
             </tr>
             </thead>
             <s:iterator value="pageView.records" var="pr" status="s">
-                <tr style="background-color: #fF8FBFE"
+                <tr style="background-color: #F8FBFE"
                     onmousemove="changebg(this,0)" onmouseout="changebg(this,1)">
                     <td>${s.count}</td>
                     <td><a href="Order!findOrder.action?orderId=${pr.orderId}">${pr.orderId}</a>

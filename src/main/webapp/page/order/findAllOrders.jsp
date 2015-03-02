@@ -74,10 +74,13 @@
         }
 
         function checkNull() {
-            var date = $dp.cal.getNewP();
-            var supplier = $(".supplier").select().text();
-            alert(date+"+"+supplier);
-            return false;
+            var date = document.getElementById("orderDate").value;
+            var supplier = document.getElementById("supplier").selectedIndex;
+            if (date == "" && supplier == 0) {
+                alert("请至少输入一个查询条件");
+                return false;
+            }
+            return true;
         }
     </script>
 </head>
@@ -92,7 +95,7 @@
                 <tr align="center">
                     <td>需求日期：</td>
                     <td><input type="text" name="orderDate" class="Wdate"
-                               onfocus="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})" id="orderDate"/></td>
+                               onclick="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})" id="orderDate"/></td>
                     <td>&nbsp;&nbsp;</td>
                     <td>供应商：</td>
                     <td><select name="supplier" id="supplier"
@@ -119,7 +122,7 @@
     <form action="DemandPlans.action" method="post" id="myform">
         <input type="hidden" name="page" value="1" id="page"/>
         <table
-                style="border: 1 #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
+                style="border: 1px #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
             <thead align="center">
             <tr>
                 <td>
