@@ -260,6 +260,8 @@ public class OrderAction extends MyActionSupport implements
             jpql.append(" and orderDate<='" + orderVO.getOrderDate() + "'");
         if (!orderVO.getOrderId().isEmpty())
             jpql.append(" and orderId like '%" + orderVO.getOrderId() + "%'");
+        if(!orderVO.getSupplier().isEmpty())
+            jpql.append(" and supplier like '%" + orderVO.getSupplier() + "%'");
         /** 列表条件的值 **/
         List<Object> params = new ArrayList<Object>();
         pageView.setQueryResult(purchaseRequisitionService.getScrollData(

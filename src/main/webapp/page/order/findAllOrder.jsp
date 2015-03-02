@@ -122,7 +122,7 @@
     <form action="DemandPlans.action" method="post" id="myform">
         <input type="hidden" name="page" value="1" id="page"/>
         <table
-                style="border: 1px #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
+                style="border: 1px #ffffff solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
             <thead align="center">
             <tr>
                 <td>

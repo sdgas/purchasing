@@ -163,27 +163,43 @@
             <table>
                 <tr style="width: 1500px">
                     <td style="width:100px">供应商：</td>
-                    <td><input type="text" name="supplier" id="supplier"
-                               class="search" onclick="findAuto()"></td>
+                    <td>
+                        <input type="text" name="supplier" id="supplier"
+                               class="search" onclick="findAuto()">
+                    </td>
                     <td>&nbsp;&nbsp;</td>
                     <td style="width:100px">物料：</td>
-                    <td><input type="text" name="material" id="material"
-                               class="search" onclick="search()"></td>
+                    <td>
+                        <input type="text" name="material" id="material"
+                               class="search" onclick="search()">
+                    </td>
                     <td>&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
                     <td>开始日期：</td>
-                    <td><input type="text" name="begin" id="begin" class="Wdate"
-                               onfocus="WdatePicker({skin:'whyGreen',maxDate: '%y-%M-%d'})"/></td>
+                    <td>
+                        <input type="text" name="begin" id="begin" class="Wdate"
+                               onfocus="WdatePicker({skin:'whyGreen',maxDate: '%y-%M-%d'})"/>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
                     <td>结束日期：</td>
-                    <td><input type="text" name="end" id="end" class="Wdate"
-                               onfocus="WdatePicker({skin:'whyGreen',maxDate: '%y-%M-%d'})"/></td>
-                    <td><input type="submit" class="btn btn-default" value="查询">
+                    <td>
+                        <input type="text" name="end" id="end" class="Wdate"
+                               onfocus="WdatePicker({skin:'whyGreen',maxDate: '%y-%M-%d'})"/>
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="5" align="center">
+                        <input type="submit" class="btn btn-default" value="查询">
+                    </td>
                 </tr>
             </table>
         </div>
     </form>
     <form action="#" method="post">
         <table
-                style="border: 1 #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
+                style="border: 1px #ffffff solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
             <thead align="center">
             <tr>
                 <td>

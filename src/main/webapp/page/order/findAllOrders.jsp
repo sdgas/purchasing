@@ -76,7 +76,8 @@
         function checkNull() {
             var date = document.getElementById("orderDate").value;
             var supplier = document.getElementById("supplier").selectedIndex;
-            if (date == "" && supplier == 0) {
+            var orderId = document.getElementById("orderId").value;
+            if (date == "" && supplier == 0 && orderId == "") {
                 alert("请至少输入一个查询条件");
                 return false;
             }
@@ -87,7 +88,7 @@
 <body>
 <%@ include file="/page/share/menu.jsp" %>
 <div id="content">
-    <form action="Order.action" method="post" onsubmit="return checkNull();">
+    <form action="Order!search.action" method="post" onsubmit="return checkNull();">
         <input type="hidden" name="flag" value="4">
 
         <div class="form-group" align="center">
@@ -122,7 +123,7 @@
     <form action="DemandPlans.action" method="post" id="myform">
         <input type="hidden" name="page" value="1" id="page"/>
         <table
-                style="border: 1px #000000 solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
+                style="border: 1px #ffffff solid;margin: 20px auto 20px;opacity:0.9;font-family: '微软雅黑',serif;width:1000px;text-align: center;">
             <thead align="center">
             <tr>
                 <td>
