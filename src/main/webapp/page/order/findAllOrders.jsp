@@ -34,6 +34,8 @@
     <script language="javascript" type="text/javascript"
             src="<%=basePath%>js/My97DatePicker/WdatePicker.js"></script>
     <link rel="stylesheet" href="<%=basePath%>css/bootstrap.min.css">
+    <%--jQuery placeholder, for IE6,7,8,9--%>
+    <script src="<%=basePath%>js/jquery.JPlaceholder.js"></script>
     <%--加载dwr--%>
     <script src='<%=basePath%>dwr/util.js' type="text/javascript"></script>
     <script src='<%=basePath%>dwr/engine.js' type="text/javascript"></script>
@@ -70,12 +72,19 @@
             }
             $("#supplier").html(select_list);
         }
+
+        function checkNull() {
+            var date = $dp.cal.getNewP();
+            var supplier = $(".supplier").select().text();
+            alert(date+"+"+supplier);
+            return false;
+        }
     </script>
 </head>
 <body>
 <%@ include file="/page/share/menu.jsp" %>
 <div id="content">
-    <form action="Order.action" method="post">
+    <form action="Order.action" method="post" onsubmit="return checkNull();">
         <input type="hidden" name="flag" value="4">
 
         <div class="form-group" align="center">
@@ -83,15 +92,25 @@
                 <tr align="center">
                     <td>需求日期：</td>
                     <td><input type="text" name="orderDate" class="Wdate"
-                               onfocus="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})"/></td>
+                               onfocus="WdatePicker({skin:'whyGreen',minDate: '%y-%M-%d'})" id="orderDate"/></td>
                     <td>&nbsp;&nbsp;</td>
                     <td>供应商：</td>
                     <td><select name="supplier" id="supplier"
                                 style="font-family: '微软雅黑';font-size: 16px;"></select></td>
                     <td>&nbsp;&nbsp;</td>
-                    <td><input type="text" class="form-control"
-                               placeholder="请采购编号" name="orderId">
+                </tr>
+                <tr align="center">
+                    <td>采购编号：</td>
+                    <td>
+                        <input type="text" class="form-control"
+                               placeholder="请输入采购编号" name="orderId" style="height: 28px;width: 180px" id="orderId">
+                    </td>
+                    <td>&nbsp;&nbsp;</td>
+                </tr>
+                <tr align="center">
+                    <td colspan="6" align="center">
                         <button type="submit" class="btn btn-default">查询</button>
+                        <button type="reset" class="btn btn-default">重置</button>
                     </td>
                 </tr>
             </table>
@@ -124,7 +143,7 @@
             </tr>
             </thead>
             <s:iterator value="pageView.records" var="pr" status="s">
-                <tr style="background-color: #fF8FBFE"
+                <tr style="background-color: #F8FBFE"
                     onmousemove="changebg(this,0)" onmouseout="changebg(this,1)">
                     <td>${s.count}</td>
                     <td><a
