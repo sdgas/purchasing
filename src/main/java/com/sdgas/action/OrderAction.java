@@ -208,7 +208,7 @@ public class OrderAction extends MyActionSupport implements
                 PurchaseOrder.class, firstIndex, maxResult, jpql.toString(),
                 params.toArray(), orderBy));
         orderVO.setPageView(pageView);
-        view = "/page/order/findAllOrders.jsp";
+        view = "/purchasing/page/order/findAllOrders.jsp";
         return VIEW;
     }
 

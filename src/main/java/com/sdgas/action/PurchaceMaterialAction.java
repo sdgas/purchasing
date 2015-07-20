@@ -73,7 +73,7 @@ public class PurchaceMaterialAction extends MyActionSupport implements ModelDriv
                 demandPlan.setAttachment(name);
                 pr.setAttachment(name);
             } else {
-                purchaseMaterialVO.setResultMessage("<script>alert('附件上传失败，请重新上传！');location.href='page/dp/addPlans.jsp';</script>");
+                purchaseMaterialVO.setResultMessage("<script>alert('附件上传失败，请重新上传！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
                 return ERROR;
             }
         }
@@ -115,10 +115,10 @@ public class PurchaceMaterialAction extends MyActionSupport implements ModelDriv
                 }
             }
             demandPlansService.delete(demandPlan);
-            purchaseMaterialVO.setResultMessage("<script>alert('输入物料信息有误，请重新录入！');location.href='page/dp/addPlans.jsp';</script>");
+            purchaseMaterialVO.setResultMessage("<script>alert('输入物料信息有误，请重新录入！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
             return ERROR;
         }
-        purchaseMaterialVO.setResultMessage("<script>alert('需求计划已成功提交！');location.href='page/dp/addPlans.jsp';</script>");
+        purchaseMaterialVO.setResultMessage("<script>alert('需求计划已成功提交！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
         return SUCCESS;
     }
 

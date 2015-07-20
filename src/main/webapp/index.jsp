@@ -43,7 +43,7 @@
 <body>
 <%@ include file="/page/share/menu.jsp" %>
 <div id="content">
-    <form action="#" method="post">
+   <%-- <form action="#" method="post">
 
         <div class="alert" style="width: 450px;margin: 20px 0px 20px 180px;">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -82,7 +82,7 @@
     </div>
     <div
             style="display:block; float:left;border:1px solid #FFFFFF;background-color: #c0ffa7;width: 400px;height: 300px">
-    </div>
+    </div>--%>
 </div>
 
 <%@include file="/page/share/footer.jsp" %>

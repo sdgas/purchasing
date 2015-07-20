@@ -125,7 +125,7 @@ public class MaterialAction extends MyActionSupport implements ModelDriven<Mater
                 params.toArray(), orderBy));
         materialVO.setPageView(pageView);
         if (pageView.getRecords().isEmpty()) {
-            materialVO.setResultMessage("<script>alert('当前还没有相应的物料信息！请到对应页面添加');location.href='/page/material/addMaterial.jsp';</script>");
+            materialVO.setResultMessage("<script>alert('当前还没有相应的物料信息！请到对应页面添加');location.href='/purchasing/page/material/addMaterial.jsp';</script>");
             return ERROR;
         }
 

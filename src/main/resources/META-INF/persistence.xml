@@ -4,9 +4,9 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
 	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 
-    <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
+    <!--<persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
 
-        <!-- 驱动实现类，入口类 -->
+        &lt;!&ndash; 驱动实现类，入口类 &ndash;&gt;
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
@@ -14,9 +14,9 @@
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="root"/>
             <property name="hibernate.connection.url"
-                      value="jdbc:mysql://localhost:3306/purchasing?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                      value="jdbc:mysql://10.48.30.4:3306/purchasing?useUnicode=true&amp;characterEncoding=UTF-8"/>
             <property name="hibernate.max_fetch_depth" value="3"/>
-            <!-- dev时设为update，prod 中时应该去掉，目的是为了不存在这个表时，增加，存在时，检验是否符合entity所描述那样 -->
+            &lt;!&ndash; dev时设为update，prod 中时应该去掉，目的是为了不存在这个表时，增加，存在时，检验是否符合entity所描述那样 &ndash;&gt;
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.jdbc.fetch_size" value="18"/>
             <property name="hibernate.jdbc.batch_size" value="10"/>
@@ -24,6 +24,21 @@
             <property name="hibernate.format_sql" value="false"/>
         </properties>
 
+    </persistence-unit>-->
+
+    <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <properties>
+            <property name="hibernate.connection.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:jtds:sqlserver://10.48.1.38:1433/purchasing"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value="sa"/>
+
+            <property name="hibernate.show_sql" value="false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServerDialect"/>
+            <property name="hibernate.current_session_context_class" value="thread"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
     </persistence-unit>
 </persistence>
 
