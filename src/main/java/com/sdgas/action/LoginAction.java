@@ -85,7 +85,7 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
 
         User user = userService.findById(userVO.getUserId());
         if (!user.getPassword().equals(userVO.getPassword())) {
-            userVO.setResultMessage("<script>alert('原密码错误');location.href='/page/message/alterPwd.jsp';</script>");
+            userVO.setResultMessage("<script>alert('原密码错误');location.href='/purchasing/page/message/alterPwd.jsp';</script>");
             logger.info(user.getPosition().getPositionName() + ":" + user.getUserName() + " 修改用户密码，原密码错误）操作IP：" + ip);
             return ERROR;
         } else {

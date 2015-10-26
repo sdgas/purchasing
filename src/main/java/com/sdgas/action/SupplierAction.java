@@ -64,7 +64,7 @@ public class SupplierAction extends MyActionSupport implements
         supplierVO.setPageView(pageView);
         if (pageView.getRecords().isEmpty()) {
             supplierVO
-                    .setResultMessage("<script>alert('当前还没有供应商信息！请到对应页面添加供应商信息');location.href='/page/supplier/addSupplier.jsp';</script>");
+                    .setResultMessage("<script>alert('当前还没有供应商信息！请到对应页面添加供应商信息');location.href='/purchasing/page/supplier/addSupplier.jsp';</script>");
             return ERROR;
         }
 
@@ -97,15 +97,15 @@ public class SupplierAction extends MyActionSupport implements
             } catch (Exception e) {
                 logger.error(e);
                 supplierVO
-                        .setResultMessage("<script>alert('供应商信息保存失败！');location.href='/page/supplier/addSupplier.jsp';</script>");
+                        .setResultMessage("<script>alert('供应商信息保存失败！');location.href='/purchasing/page/supplier/addSupplier.jsp';</script>");
                 return ERROR;
             }
             supplierVO
-                    .setResultMessage("<script>alert('供应商信息保存成功！');location.href='/page/supplier/addSupplier.jsp';</script>");
+                    .setResultMessage("<script>alert('供应商信息保存成功！');location.href='/purchasing/page/supplier/addSupplier.jsp';</script>");
             return SUCCESS;
         } else {
             supplierVO
-                    .setResultMessage("<script>alert('供应商已存在请勿重复增加！');location.href='/page/supplier/addSupplier.jsp';</script>");
+                    .setResultMessage("<script>alert('供应商已存在请勿重复增加！');location.href='/purchasing/page/supplier/addSupplier.jsp';</script>");
             return ERROR;
         }
     }

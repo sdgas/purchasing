@@ -46,49 +46,39 @@ public class PurchaceMaterialAction extends MyActionSupport implements ModelDriv
             return ERROR;
         }
         //添加需求计划
-        DemandPlans demandPlan = null;
-        PurchaseRequisition pr = null;
-        try {
-            demandPlan = new DemandPlans();
-            demandPlan.setApplyDate(ChangeTime.parseDate(ChangeTime.getCurrentDate()));
-            demandPlan.setCeaNum(purchaseMaterialVO.getCeaNum());
-            demandPlan.setDemandType(purchaseMaterialVO.getDemandType());
-            demandPlan.setDemandDate(ChangeTime.parseShortDate(purchaseMaterialVO.getDemandDate()));
+        DemandPlans demandPlan = new DemandPlans();
+        demandPlan.setApplyDate(ChangeTime.parseDate(ChangeTime.getCurrentDate()));
+        demandPlan.setCeaNum(purchaseMaterialVO.getCeaNum());
+        demandPlan.setDemandType(purchaseMaterialVO.getDemandType());
+        demandPlan.setDemandDate(ChangeTime.parseShortDate(purchaseMaterialVO.getDemandDate()));
 
-            demandPlan.setDemandUser(user);
-            Department department = departmentService.find(Department.class, Integer.valueOf(purchaseMaterialVO.getDepartmentId()));
-            demandPlan.setDepartment(department);
-            demandPlan.setProject(purchaseMaterialVO.getProject());
-            demandPlan.setRemarks(purchaseMaterialVO.getRemarks());
-            demandPlan.setStatus(DemandStatus.APPLY);
+        demandPlan.setDemandUser(user);
+        Department department = departmentService.find(Department.class, Integer.valueOf(purchaseMaterialVO.getDepartmentId()));
+        demandPlan.setDepartment(department);
+        demandPlan.setProject(purchaseMaterialVO.getProject());
+        demandPlan.setRemarks(purchaseMaterialVO.getRemarks());
+        demandPlan.setStatus(DemandStatus.APPLY);
 
-            pr = new PurchaseRequisition();
-            pr.setCeaNum(purchaseMaterialVO.getCeaNum());
-            pr.setProject(purchaseMaterialVO.getProject());
-            pr.setDepartment(department);
-            pr.setDemandType(purchaseMaterialVO.getDemandType());
-            pr.setPrDate(ChangeTime.parseShortDate(purchaseMaterialVO.getDemandDate()));
+        PurchaseRequisition pr = new PurchaseRequisition();
+        pr.setCeaNum(purchaseMaterialVO.getCeaNum());
+        pr.setProject(purchaseMaterialVO.getProject());
+        pr.setDepartment(department);
+        pr.setDemandType(purchaseMaterialVO.getDemandType());
+        pr.setPrDate(ChangeTime.parseShortDate(purchaseMaterialVO.getDemandDate()));
 
-            //处理附件
-            if (purchaseMaterialVO.getAttachment() != null) {
-                String name = purchaseMaterialService.uploadAttachment(purchaseMaterialVO);
-                if (name != "") {
-                    demandPlan.setAttachment(name);
-                    pr.setAttachment(name);
-                } else {
-                    purchaseMaterialVO.setResultMessage("<script>alert('附件上传失败，请重新上传！');location.href='page/dp/addPlans.jsp';</script>");
-                    return ERROR;
-                }
+        //处理附件
+        if (purchaseMaterialVO.getAttachment() != null) {
+            String name = purchaseMaterialService.uploadAttachment(purchaseMaterialVO);
+            if (name != "") {
+                demandPlan.setAttachment(name);
+                pr.setAttachment(name);
+            } else {
+                purchaseMaterialVO.setResultMessage("<script>alert('附件上传失败，请重新上传！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
+                return ERROR;
             }
-            purchaseRequisitionService.save(pr);
-            demandPlansService.save(demandPlan);
-        } catch (NumberFormatException e) {
-            purchaseMaterialVO.setResultMessage("<script>alert('需求计划提交失败，某些信息不完整或不正确！请改正后重新提交');location.href='page/dp/addPlans.jsp';</script>");
-            return ERROR;
-        } catch (Exception e){
-            purchaseMaterialVO.setResultMessage("<script>alert('需求计划提交失败，某些信息不完整或不正确！请改正后重新提交');location.href='page/dp/addPlans.jsp';</script>");
-            return ERROR;
         }
+        purchaseRequisitionService.save(pr);
+        demandPlansService.save(demandPlan);
 
         //TODO:MAIL
         User person = userService.findNextUser("DP", user, null);
@@ -125,10 +115,10 @@ public class PurchaceMaterialAction extends MyActionSupport implements ModelDriv
                 }
             }
             demandPlansService.delete(demandPlan);
-            purchaseMaterialVO.setResultMessage("<script>alert('输入物料信息有误，请重新录入！');location.href='page/dp/addPlans.jsp';</script>");
+            purchaseMaterialVO.setResultMessage("<script>alert('输入物料信息有误，请重新录入！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
             return ERROR;
         }
-        purchaseMaterialVO.setResultMessage("<script>alert('需求计划已成功提交！');location.href='page/dp/addPlans.jsp';</script>");
+        purchaseMaterialVO.setResultMessage("<script>alert('需求计划已成功提交！');location.href='/purchasing/page/dp/addPlans.jsp';</script>");
         return SUCCESS;
     }
 
