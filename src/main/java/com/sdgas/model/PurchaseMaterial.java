@@ -74,7 +74,7 @@ public class PurchaseMaterial {
     }
 
     @ManyToOne
-    @JoinColumn(name = "plan", nullable = false)
+    @JoinColumn(name = "demandPlans", nullable = false)
     public DemandPlans getPlan() {
         return plan;
     }

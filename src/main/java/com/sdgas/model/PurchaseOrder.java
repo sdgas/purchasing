@@ -177,7 +177,7 @@ public class PurchaseOrder {
         this.amount = amount;
     }
 
-    @Column(length = 4, columnDefinition = "FLOAT default 0.0")
+    @Column(length = 4)
     public float getArrivalNum() {
         return arrivalNum;
     }
@@ -195,7 +195,6 @@ public class PurchaseOrder {
         this.status = status;
     }
 
-    @Column(columnDefinition = "DOUBLE default 0.0")
     public double getTotalPay() {
         return totalPay;
     }

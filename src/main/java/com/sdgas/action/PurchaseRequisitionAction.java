@@ -119,9 +119,14 @@ public class PurchaseRequisitionAction extends MyActionSupport implements ModelD
             jpql.append("status=" + PRStatus.DEMAND.getStatus());
         /** 列表条件的值 **/
         List<Object> params = new ArrayList<Object>();
-        pageView.setQueryResult(purchaseRequisitionService.getScrollData(PurchaseRequisition.class, firstIndex, maxResult, jpql.toString(),
-                params.toArray(), orderBy));
-        prVo.setPageView(pageView);
+        try {
+            pageView.setQueryResult(purchaseRequisitionService.getScrollData(PurchaseRequisition.class, firstIndex, maxResult, jpql.toString(),
+                    params.toArray(), orderBy));
+            prVo.setPageView(pageView);
+        } catch (Exception e) {
+            prVo.setResultMessage("<script>alert('无法查询数据！请重试');location.href='PurchaseRequisition!findAll.action';</script>");
+            return SUCCESS;
+        }
         view = "/page/pr/findAllPR.jsp";
         return VIEW;
     }
@@ -150,9 +155,14 @@ public class PurchaseRequisitionAction extends MyActionSupport implements ModelD
             jpql.append(" and prDate <= '" + prVo.getPrDate()).append("'");
         /** 列表条件的值 **/
         List<Object> params = new ArrayList<Object>();
-        pageView.setQueryResult(purchaseRequisitionService.getScrollData(PurchaseRequisition.class, firstIndex, maxResult, jpql.toString(),
-                params.toArray(), orderBy));
-        prVo.setPageView(pageView);
+        try {
+            pageView.setQueryResult(purchaseRequisitionService.getScrollData(PurchaseRequisition.class, firstIndex, maxResult, jpql.toString(),
+                    params.toArray(), orderBy));
+            prVo.setPageView(pageView);
+        } catch (Exception e) {
+            prVo.setResultMessage("<script>alert('无法查询数据！请重试');location.href='PurchaseRequisition!findAll.action';</script>");
+            return SUCCESS;
+        }
         if (pageView.getRecords().isEmpty()) {
             if (prVo.getFlag() == 9)
                 prVo.setResultMessage("<script>alert('尚未找到相关信息');location.href='PurchaseRequisition!findOrder.action';</script>");

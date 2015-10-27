@@ -96,7 +96,7 @@ public class PurchaseRequisition {
     }
 
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "applyUser")
     public User getApplyUser() {
         return applyUser;
     }
