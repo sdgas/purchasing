@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -65,6 +66,7 @@ public class PurchaceMaterialAction extends MyActionSupport implements ModelDriv
         pr.setDepartment(department);
         pr.setDemandType(purchaseMaterialVO.getDemandType());
         pr.setPrDate(ChangeTime.parseShortDate(purchaseMaterialVO.getDemandDate()));
+        pr.setPrId(ChangeTime.formatDate(new Date()));
 
         //处理附件
         if (purchaseMaterialVO.getAttachment() != null) {

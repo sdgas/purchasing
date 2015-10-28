@@ -150,11 +150,11 @@ public class PurchaseRequisition {
         this.applyDate = applyDate;
     }
 
+    @Column(length = 20)
     public String getCeaNum() {
         return ceaNum;
     }
 
-    @Column(length = 20)
     public void setCeaNum(String ceaNum) {
         this.ceaNum = ceaNum;
     }
