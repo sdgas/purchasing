@@ -41,7 +41,7 @@ public class UserServiceImpl extends DaoSupport<User> implements UserService {
 
     private User dpSendMail(User user) {
         Query query = em.createQuery("select o from User o where department.departmentName=?1 and position.positionName=?2 and remarks like ?3");
-        if ("员工".equals(user.getPosition().getPositionName())) {
+        if ("员工".equals(user.getPosition().getPositionName()) || "管理员".equals(user.getPosition().getPositionName())) {
             query = em.createQuery("select o from User o where department.departmentName=?1 and position.positionName=?2");
             query.setParameter(1, user.getDepartment().getDepartmentName());
             query.setParameter(2, "部门经理");

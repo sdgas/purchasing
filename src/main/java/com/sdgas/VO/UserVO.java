@@ -1,5 +1,12 @@
 package com.sdgas.VO;
 
+import com.sdgas.model.DemandPlans;
+import com.sdgas.model.PurchaseOrder;
+import com.sdgas.model.PurchaseRequisition;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by 120378 on 2014/5/13.
  */
@@ -19,6 +26,10 @@ public class UserVO extends BaseVO {
     private String pwd1;
 
     private String pwd2;
+
+    private List<DemandPlans> demandPlanses = new ArrayList<DemandPlans>();
+    private List<PurchaseRequisition> purchaseRequisitions = new ArrayList<PurchaseRequisition>();
+    private List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
 
     public String getPwd2() {
         return pwd2;
@@ -74,5 +85,29 @@ public class UserVO extends BaseVO {
 
     public void setPosition(String position) {
         this.position = position;
+    }
+
+    public List<DemandPlans> getDemandPlanses() {
+        return demandPlanses;
+    }
+
+    public void setDemandPlanses(List<DemandPlans> demandPlanses) {
+        this.demandPlanses = demandPlanses;
+    }
+
+    public List<PurchaseRequisition> getPurchaseRequisitions() {
+        return purchaseRequisitions;
+    }
+
+    public void setPurchaseRequisitions(List<PurchaseRequisition> purchaseRequisitions) {
+        this.purchaseRequisitions = purchaseRequisitions;
+    }
+
+    public List<PurchaseOrder> getPurchaseOrders() {
+        return purchaseOrders;
+    }
+
+    public void setPurchaseOrders(List<PurchaseOrder> purchaseOrders) {
+        this.purchaseOrders = purchaseOrders;
     }
 }

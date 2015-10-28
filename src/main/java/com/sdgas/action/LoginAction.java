@@ -2,6 +2,9 @@ package com.sdgas.action;
 
 import com.opensymphony.xwork2.ModelDriven;
 import com.sdgas.VO.UserVO;
+import com.sdgas.model.DemandPlans;
+import com.sdgas.model.PurchaseOrder;
+import com.sdgas.model.PurchaseRequisition;
 import com.sdgas.model.User;
 import com.sdgas.service.UserService;
 import com.sdgas.util.SystemHelper;
@@ -14,6 +17,8 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -47,7 +52,6 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
         logger.entry(user.getUserName());
 
         if (userVO.getPassword().equals(user.getPassword())) {
-
             storePersonToSession(user);
             logger.info(user.getPosition().getPositionName() + " " + user.getUserName() + ",登录系统 IP:" + ip);
             HttpServletRequest request = ServletActionContext.getRequest();
@@ -55,6 +59,13 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
             if (obj != null) {
                 view = obj.toString();
             } else {
+                //todo:
+                List<DemandPlans> demandPlanses = new ArrayList<DemandPlans>();
+                List<PurchaseRequisition> purchaseRequisitions = new ArrayList<PurchaseRequisition>();
+                List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
+                userVO.setDemandPlanses(demandPlanses);
+                userVO.setPurchaseOrders(purchaseOrders);
+                userVO.setPurchaseRequisitions(purchaseRequisitions);
                 view = "/index.jsp";
                 return VIEW;
             }
