@@ -11,7 +11,7 @@
 <div id="head_line"></div>
 <div id="head" style="width: 1050px">
 
-    <a href="index.jsp" style="border: none;"> <img
+    <a href="Login!indexPage.action" style="border: none;"> <img
             src="<%=basePath%>img/logo.bmp"
             style="border: none;margin-right: 10px;width: 300px;height: 80px;"/>
     </a>

@@ -6,16 +6,14 @@ import com.sdgas.model.PurchaseMaterial;
 import com.sdgas.model.PurchaseOrder;
 import com.sdgas.model.Supplier;
 import com.sdgas.service.OrderService;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.persistence.Query;
 
 /**
  * Created by 斌 on 2014/9/3.
@@ -55,5 +53,10 @@ public class OrderServiceImpl extends DaoSupport<PurchaseOrder> implements
         query.setParameter(3, end);
         query.setParameter(4, OrderStatus.DONE);
         return query.getResultList();
+    }
+
+    @Override
+    public List<PurchaseOrder> findAll() {
+        return null;
     }
 }

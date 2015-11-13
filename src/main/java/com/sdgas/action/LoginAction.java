@@ -6,6 +6,9 @@ import com.sdgas.model.DemandPlans;
 import com.sdgas.model.PurchaseOrder;
 import com.sdgas.model.PurchaseRequisition;
 import com.sdgas.model.User;
+import com.sdgas.service.DemandPlansService;
+import com.sdgas.service.OrderService;
+import com.sdgas.service.PurchaseRequisitionService;
 import com.sdgas.service.UserService;
 import com.sdgas.util.SystemHelper;
 import org.apache.logging.log4j.LogManager;
@@ -29,6 +32,10 @@ import java.util.List;
 public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> {
 
     private UserService userService;
+    private DemandPlansService demandPlansService;
+    private PurchaseRequisitionService purchaseRequisitionService;
+    private OrderService orderService;
+
     private final UserVO userVO = new UserVO();
 
     private static String ip = "";
@@ -59,9 +66,9 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
             if (obj != null) {
                 view = obj.toString();
             } else {
-                //todo:
-                List<DemandPlans> demandPlanses = new ArrayList<DemandPlans>();
-                List<PurchaseRequisition> purchaseRequisitions = new ArrayList<PurchaseRequisition>();
+                //todo:同步indexPage方法
+                List<DemandPlans> demandPlanses = demandPlansService.findAll();
+                List<PurchaseRequisition> purchaseRequisitions = purchaseRequisitionService.findAll();
                 List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
                 userVO.setDemandPlanses(demandPlanses);
                 userVO.setPurchaseOrders(purchaseOrders);
@@ -87,6 +94,18 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
             //session.invalidate();
         }
         view = "/login.jsp";
+        return VIEW;
+    }
+
+    //todo:复制login方法
+    public String indexPage() {
+        List<DemandPlans> demandPlanses = demandPlansService.findAll();
+        List<PurchaseRequisition> purchaseRequisitions = purchaseRequisitionService.findAll();
+        List<PurchaseOrder> purchaseOrders = new ArrayList<PurchaseOrder>();
+        userVO.setDemandPlanses(demandPlanses);
+        userVO.setPurchaseOrders(purchaseOrders);
+        userVO.setPurchaseRequisitions(purchaseRequisitions);
+        view = "/index.jsp";
         return VIEW;
     }
 
@@ -128,5 +147,20 @@ public class LoginAction extends MyActionSupport implements ModelDriven<UserVO> 
             session.setAttribute("loginKey", "success");
             session.setMaxInactiveInterval(-1);
         }
+    }
+
+    @Resource(name = "demandPlansServiceImpl")
+    public void setDemandPlansService(DemandPlansService demandPlansService) {
+        this.demandPlansService = demandPlansService;
+    }
+
+    @Resource(name = "purchaseRequisitionServiceImpl")
+    public void setPurchaseRequisitionService(PurchaseRequisitionService purchaseRequisitionService) {
+        this.purchaseRequisitionService = purchaseRequisitionService;
+    }
+
+    @Resource(name = "orderServiceImpl")
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
     }
 }

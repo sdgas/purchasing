@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import javax.persistence.Query;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,6 +74,21 @@ public class DemandPlansServiceImpl extends DaoSupport<DemandPlans> implements D
             return demandPlanses;
         } else
             return this.findByFields(DemandPlans.class, params);
+    }
+
+    @Override
+    public List<DemandPlans> findAll() {
+        Query query = em.createQuery("select o from DemandPlans o where status =?1 order by applyDate desc");
+        query.setParameter(1, DemandStatus.APPLY);
+        List<DemandPlans> demandPlansList = query.getResultList();
+        if (demandPlansList.size() < 10)
+            return demandPlansList;
+        else {
+            List<DemandPlans> dps = new ArrayList<>();
+            for (int i = 0; i < 10; i++)
+                dps.add(demandPlansList.get(i));
+            return dps;
+        }
     }
 
     public String create(User user, boolean b) {

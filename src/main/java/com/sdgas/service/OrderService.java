@@ -40,4 +40,6 @@ public interface OrderService extends DAO {
      */
     public List<PurchaseOrder> findOrdersBySupplier(Supplier supplier,
                                                     Date begin, Date end);
+
+    public List<PurchaseOrder> findAll();
 }

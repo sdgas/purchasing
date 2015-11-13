@@ -1,10 +1,13 @@
 package com.sdgas.Service.Impl;
 
+import com.sdgas.model.PurchaseRequisition;
 import com.sdgas.service.PurchaseRequisitionService;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 public class PurchaseRequisitionServiceImplTest {
 
@@ -23,8 +26,11 @@ public class PurchaseRequisitionServiceImplTest {
     }
 
     @Test
-    public void testLeftJoin() {
-
+    public void testFindAll() {
+        List<PurchaseRequisition> demandPlans = purchaseRequisitionService.findAll();
+        System.out.println(demandPlans.size());
+        for (PurchaseRequisition dp : demandPlans)
+            System.out.println("de:" + dp.getApplyDate());
     }
 
 

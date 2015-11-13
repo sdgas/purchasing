@@ -4,19 +4,19 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
 	http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 
-    <!--<persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
+    <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
 
-        &lt;!&ndash; 驱动实现类，入口类 &ndash;&gt;
-        <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        <!--驱动实现类，入口类-->
+        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
             <property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver"/>
             <property name="hibernate.connection.username" value="root"/>
             <property name="hibernate.connection.password" value="root"/>
             <property name="hibernate.connection.url"
-                      value="jdbc:mysql://10.48.30.4:3306/purchasing?useUnicode=true&amp;characterEncoding=UTF-8"/>
+                      value="jdbc:mysql://127.0.0.1:3306/purchasing?useUnicode=true&amp;characterEncoding=UTF-8"/>
             <property name="hibernate.max_fetch_depth" value="3"/>
-            &lt;!&ndash; dev时设为update，prod 中时应该去掉，目的是为了不存在这个表时，增加，存在时，检验是否符合entity所描述那样 &ndash;&gt;
+            &lt;!&ndash;dev时设为update，prod 中时应该去掉，目的是为了不存在这个表时，增加，存在时，检验是否符合entity所描述那样&ndash;&gt;
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.jdbc.fetch_size" value="18"/>
             <property name="hibernate.jdbc.batch_size" value="10"/>
@@ -24,9 +24,9 @@
             <property name="hibernate.format_sql" value="false"/>
         </properties>
 
-    </persistence-unit>-->
+    </persistence-unit>
 
-    <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">
+   <persistence-unit name="purchasing" transaction-type="RESOURCE_LOCAL">-->
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <properties>
             <property name="hibernate.connection.driver_class" value="net.sourceforge.jtds.jdbc.Driver"/>

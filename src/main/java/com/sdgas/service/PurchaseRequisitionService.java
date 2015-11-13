@@ -3,6 +3,8 @@ package com.sdgas.service;
 import com.sdgas.base.DAO;
 import com.sdgas.model.PurchaseRequisition;
 
+import java.util.List;
+
 /**
  * Created by 120378 on 2014/5/13.
  */
@@ -23,4 +25,6 @@ public interface PurchaseRequisitionService extends DAO {
      * @return 请购单
      */
     public PurchaseRequisition findPRByPrId(String prId);
+
+    public List<PurchaseRequisition> findAll();
 }

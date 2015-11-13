@@ -1,5 +1,6 @@
 package com.sdgas.Service.Impl;
 
+import com.sdgas.model.DemandPlans;
 import com.sdgas.service.DemandPlansService;
 import com.sdgas.service.UserService;
 import junit.framework.Assert;
@@ -7,6 +8,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.List;
 
 public class DemandPlansServiceImplTest {
 
@@ -36,6 +39,13 @@ public class DemandPlansServiceImplTest {
     public void testCheckDP() {
         String str = demandPlansService.checkDP(userService.findById("leader"));
         Assert.assertEquals("", str);
+    }
+
+    @Test
+    public void testFindAll() {
+        List<DemandPlans> demandPlans = demandPlansService.findAll();
+        for (DemandPlans dp : demandPlans)
+            System.out.println("de:" + dp.getApplyDate());
     }
 
 }

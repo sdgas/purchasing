@@ -43,14 +43,14 @@
 <body>
 <%@ include file="/page/share/menu.jsp" %>
 <div id="content">
-   <form action="#" method="post">
+<%--   <form action="#" method="post">
 
         <div class="alert" style="width: 450px;margin: 20px 0px 20px 180px;">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
             <strong>Warning!</strong> Best check yourself, you're not looking
             too good.
         </div>
-    </form>
+    </form>--%>
     <div
             style="display:block; float:left;border:1px solid #FFFFFF;width: 400px;height: 300px">
         <table>
@@ -59,30 +59,42 @@
                     <h4>新需求</h4>
                 </td>
             </tr>
+            <s:iterator value="demandPlanses" var="dps">
             <tr>
-                <td></td>
+                <td>
+                    <a href="PurchaceMaterial!findOne.action?dpId=${dps.dpId}">[ <fmt:formatDate
+                            value="${dps.applyDate}" pattern="yyyy-MM-dd"/> ] ${dps.project}
+                        -- ${dps.demandUser.userName}</a>
+                </td>
             </tr>
+            </s:iterator>
         </table>
     </div>
     <div
-            style="display:block; float:left;border:1px solid #FFFFFF;background-color: #d02380;width: 400px;height: 300px">
+            style="display:block; float:left;border:1px solid #FFFFFF;width: 400px;height: 300px">
         <table>
             <tr>
                 <td>
-                    <h4>临近需求日期</h4>
+                    <h4>新请购单</h4>
                 </td>
             </tr>
-            <tr>
-                <td></td>
-            </tr>
+            <s:iterator value="purchaseRequisitions" var="pr">
+                <tr>
+                    <td>
+                        <a href="PurchaseRequisition!showOne.action?prId=${pr.prId}">[ <fmt:formatDate
+                                value="${dps.applyDate}" pattern="yyyy-MM-dd"/> ] ${dps.project}
+                            -- ${dps.demandUser.userName}</a>
+                    </td>
+                </tr>
+            </s:iterator>
         </table>
     </div>
-    <div
+   <%-- <div
             style="display:block; float:left;border:1px solid #FFFFFF;background-color: #f1ffb3;width: 400px;height: 300px">
     </div>
     <div
             style="display:block; float:left;border:1px solid #FFFFFF;background-color: #c0ffa7;width: 400px;height: 300px">
-    </div>
+    </div>--%>
 </div>
 
 <%@include file="/page/share/footer.jsp" %>

@@ -32,4 +32,6 @@ public interface DemandPlansService extends DAO {
      */
     public List<DemandPlans> findBPWhitPR(boolean b, String msg);
 
+    public List<DemandPlans> findAll();
+
 }
